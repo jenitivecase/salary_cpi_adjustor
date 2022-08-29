@@ -12,8 +12,9 @@ cpi['date_temp'] = cpi['Year'].str.cat(cpi['variable'], sep='-')
 cpi['Date'] = list(map(lambda x: datetime.datetime.strptime(x, '%Y-%b'), cpi['date_temp']))
 
 st.title('CPI-Adjusted Salary Graph')
-st.markdown('Input five recent salaries and their corresponding months, and see what your real compensation was like.')
-st.markdown('Starting values are taken from [median individual income stats](https://dqydj.com/individual-income-by-year/).')
+st.markdown('Input five recent salaries and their corresponding months, and see what your real compensation was like.' +
+            ' Starting values are taken from ' +
+            '[median individual income stats](https://dqydj.com/individual-income-by-year/).')
 
 money_now = st.sidebar.number_input('Current salary:', value=44225)
 
