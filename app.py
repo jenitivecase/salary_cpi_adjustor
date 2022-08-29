@@ -82,7 +82,15 @@ if run:
                                '<br>Salary: $%{text:.0f}' +
                                '<br>Adjusted: $%{y:.0f}'
                                ))
-    fig.update_layout(template='plotly_white')
+    fig.add_scatter(x=data['date'], y=data['salary'],
+                    text=data['salary'],
+                    hovertemplate=
+                    '<b>%{x}</b>' +
+                    '<br>Salary: $%{text:.0f}' +
+                    '<br>Adjusted: $%{y:.0f}'
+                    )
+    fig.update_layout(template='plotly_white',
+                      showlegend=False)
 
     # st.markdown('Salaries converted to July 2022 dollars.')
     st.markdown('Salaries converted to '+datetime.datetime.strftime(ref_date, '%b %Y')+' dollars.')
