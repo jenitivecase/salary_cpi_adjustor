@@ -78,16 +78,18 @@ if run:
     fig = go.Figure(go.Scatter(x=data['date'], y=data['adjusted'],
                                text=data['salary'],
                                hovertemplate=
-                               '<b>%{x}</b>' +
-                               '<br>Salary: $%{text:.0f}' +
-                               '<br>Adjusted: $%{y:.0f}'
+                               '<b>Adjusted Salary Trend Line<br>' +
+                               '%{x}</b>' +
+                               '<br>Raw Salary: $%{text:.0f}' +
+                               '<br>Adjusted Salary: $%{y:.0f}'
                                ))
     fig.add_scatter(x=data['date'], y=data['salary'],
                     text=data['salary'],
                     hovertemplate=
-                    '<b>%{x}</b>' +
-                    '<br>Salary: $%{text:.0f}' +
-                    '<br>Adjusted: $%{y:.0f}'
+                    '<b>Raw Salary Trend Line<br>' +
+                    '%{x}</b>' +
+                    '<br>Raw Salary: $%{text:.0f}' +
+                    '<br>Adjusted Salary: $%{y:.0f}'
                     )
     fig.update_layout(template='plotly_white',
                       showlegend=False)
