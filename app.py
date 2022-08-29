@@ -11,6 +11,8 @@ cpi['Year'] = list(map(str, cpi['Year']))
 cpi['date_temp'] = cpi['Year'].str.cat(cpi['variable'], sep='-')
 cpi['Date'] = list(map(lambda x: datetime.datetime.strptime(x, '%Y-%b'), cpi['date_temp']))
 
+st.set_page_config(layout="wide")
+
 st.title('CPI-Adjusted Salary Graph')
 st.markdown('Input five recent salaries and their corresponding months, and see what your real compensation was like.' +
             ' Starting values are taken from ' +
@@ -92,9 +94,9 @@ if run:
                     '<br>Raw Salary: $%{text:.0f}' +
                     '<br>Adjusted Salary: $%{y:.0f}'
                     )
-    fig.update_layout(template='plotly_white',
-                      showlegend=False)
+    fig.update_layout(template='plotly_white')
+    fig.update_layout(showlegend=False)
 
     # st.markdown('Salaries converted to July 2022 dollars.')
     st.markdown('Salaries converted to '+datetime.datetime.strftime(ref_date, '%b %Y')+' dollars.')
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
